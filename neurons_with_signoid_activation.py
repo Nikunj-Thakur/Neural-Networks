@@ -35,9 +35,10 @@ w,b = logistic_layer.get_weights()
 print(w,b)
 print(w.shape,b.shape)
 
+# set_weights takes a list of numpy arrays
 set_w = np.array([[2]])
 set_b = np.array([-4.5])
-# set_weights takes a list of numpy arrays
+
 logistic_layer.set_weights([set_w, set_b])
 print(logistic_layer.get_weights())
 

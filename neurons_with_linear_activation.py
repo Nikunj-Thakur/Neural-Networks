@@ -9,12 +9,12 @@ Y_train = np.array([[300.0], [500.0]], dtype=np.float32)       #(price in 1000s 
 
 fig, ax = plt.subplots(1,1)
 ax.scatter(X_train, Y_train, marker='x', c='r', label="Data Points")
-ax.legend( fontsize='xx-large')
+ax.legend(fontsize='xx-large')
 ax.set_ylabel('Price (in 1000s of dollars)', fontsize='xx-large')
 ax.set_xlabel('Size (1000 sqft)', fontsize='xx-large')
 plt.show()
 
-linear_layer = tf.keras.layers.Dense(units=1, activation = 'linear', )
+linear_layer = tf.keras.layers.Dense(units=1, activation = 'linear')
 print(linear_layer.get_weights()) #There are no weights as the weights are not yet instantiated.
 
 
@@ -24,6 +24,8 @@ a1 = linear_layer(X_train[0].reshape(1,1)) # X_train[0] = [1.0] has shape (1,) b
 
 print(a1) # tf.Tensor([[1.244989]], shape=(1, 1), dtype=float32)
 #The result is a tensor (another name for an array) with a shape of (1,1) or one entry.
+
+print(a1.numpy()) # Converting tensorflow array to numpy array, shape is retained.
 
 w, b= linear_layer.get_weights()
 print(f"w = {w}, b={b}") #These weights are randomly initialized to small numbers and the bias defaults to being initialized to zero.
